@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MVCNedir.Filters;
 using MVCNedir.Models;
 
 namespace MVCNedir.Areas.AdminPanel.Controllers
 {
+    [AdminPanelAuthenticationFilter]
     public class BrandController : Controller
     {
         private AdimAdimDBModel db = new AdimAdimDBModel();

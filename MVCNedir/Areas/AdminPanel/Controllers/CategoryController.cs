@@ -1,4 +1,5 @@
-﻿using MVCNedir.Models;
+﻿using MVCNedir.Filters;
+using MVCNedir.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MVCNedir.Areas.AdminPanel.Controllers
 {
+    [AdminPanelAuthenticationFilter]
     public class CategoryController : Controller
     {
         AdimAdimDBModel db = new AdimAdimDBModel();
