@@ -1,0 +1,36 @@
+﻿@model MVCNedir.Models.Category
+@{
+    ViewBag.Title = "Duzenle";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Kategori Düzenle</h1>
+</div>
+<div class="card">
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(model=> model.ID)
+            @Html.AntiForgeryToken()
+            <div class="mb-2 mt-2">
+                <label>Kategori Adı</label>
+                @Html.TextBoxFor(model => model.Isim, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Isim, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="mb-2 mt-2">
+                <label>Kategori Açıklama</label>
+                @Html.TextAreaFor(model => model.Aciklama, new { @class = "form-control" })
+            </div>
+            <div class="mt-3">
+                <input type="submit" class="btn btn-primary" value="Kategori Düzenle" />
+            </div>
+        }
+    </div>
+    <div class="card-footer">
+        <a href="@Url.Action("Index","Category")">Kategori Listesine Dön</a>
+    </div>
+</div>
+

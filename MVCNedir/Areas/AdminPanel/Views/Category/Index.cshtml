@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MVCNedir.Models.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Kategori Listesi</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a href="@Url.Action("Ekle","Category")" class="btn btn-outline-primary">Kategori Ekle +</a>
+    </div>
+</div>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>İsim</th>
+            <th class="d-none d-md-table-cell ">Açıklama</th>
+            <th>Seçenek</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Isim</td>
+                <td class="d-none d-md-table-cell">@item.Aciklama</td>
+                <td>
+                    <a href="#" class="btn btn-primary btn-sm">Detay</a>
+                    <a href="@Url.Action("Duzenle","Category", new { id = item.ID})" class="btn btn-success btn-sm">Düzenle</a>
+                    <a href="@Url.Action("Sil","Category", new { id = item.ID})" class="btn btn-danger btn-sm">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
