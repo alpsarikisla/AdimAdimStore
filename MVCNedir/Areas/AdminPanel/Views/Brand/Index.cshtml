@@ -5,30 +5,42 @@
     Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutPage1.cshtml";
 }
 
-<h2>Index</h2>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Marka Listesi</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a href="@Url.Action("Create","Brand")" class="btn btn-outline-primary">Marka Ekle +</a>
+    </div>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Isim)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Isim)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Isim)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isim)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","Brand", new { id = item.ID})" class="btn btn-success btn-sm">Düzenle</a>
+                <a href="@Url.Action("Delete","Brand", new { id = item.ID})" class="btn btn-danger btn-sm">Sil</a>
+            </td>
+        </tr>
+        }
+    </tbody>
 </table>
+
