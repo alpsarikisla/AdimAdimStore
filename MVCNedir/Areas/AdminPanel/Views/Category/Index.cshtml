@@ -29,8 +29,8 @@
                 <td>@item.Isim</td>
                 <td class="d-none d-md-table-cell">@item.Aciklama</td>
                 <td>
-                    <a href="@Url.Action("Duzenle","Category", new { id = item.ID})" class="btn btn-success btn-sm">Düzenle</a>
-                    <a href="@Url.Action("Sil","Category", new { id = item.ID})" class="btn btn-danger btn-sm">Sil</a>
+                    <a href="@Url.Action("Duzenle","Category", new { id = item.ID})" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
+                    <a href="@Url.Action("Sil","Category", new { id = item.ID})" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
         }

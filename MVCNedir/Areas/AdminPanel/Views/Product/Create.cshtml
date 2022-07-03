@@ -1,0 +1,76 @@
+﻿@model MVCNedir.Models.Product
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Ürün Ekle</h1>
+</div>
+<div class="card">
+    <div class="card-body">
+        @using (Html.BeginForm("Create","Product", FormMethod.Post, new { enctype="multipart/form-data"}))
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        @Html.LabelFor(model => model.Name)
+                        @Html.EditorFor(model => model.Name, new { htmlattributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        <label>Kategori Seçiniz</label>
+                        @Html.DropDownList("Category_ID", null, htmlAttributes: new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.Category_ID, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        <label>Marka Seçiniz</label>
+                        @Html.DropDownList("Brand_ID", null, htmlAttributes: new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.Brand_ID, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Stock)
+                        @Html.EditorFor(model => model.Stock, new { htmlattributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Price)
+                        @Html.EditorFor(model => model.Price, new { htmlattributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        @Html.LabelFor(model => model.Description)
+                        @Html.EditorFor(model => model.Description, new { htmlattributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.ImagePath)
+                        <input type="file" class="form-control" name="resim" />
+                        @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        <div class="form-check form-switch">
+                            @Html.EditorFor(model => model.SellStatus, new { htmlattributes = new { @class = "form-check-input", } })
+                            @Html.LabelFor(model => model.SellStatus, new { htmlattributes = new { @class = "form-check-label" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.SellStatus, "", new { @class = "text-danger" })
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <input type="submit" class="btn btn-primary" value="Ürün Ekle" />
+                </div>
+            </div>
+        }
+
+
+    </div>
+    <div class="card-footer">
+        <a href="@Url.Action("Index","Product")">Ürün Listesine Dön</a>
+    </div>
+</div>
+
