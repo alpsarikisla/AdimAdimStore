@@ -179,6 +179,7 @@
     <Content Include="Areas\AdminPanel\Views\Login\Index.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Product\Create.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Product\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Product\Edit.cshtml" />
     <None Include="packages.config" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />

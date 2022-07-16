@@ -59,5 +59,49 @@ namespace MVCNedir.Areas.AdminPanel.Controllers
             ViewBag.Brand_ID = new SelectList(db.Brands, "ID", "Isim");
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            Product p = db.Products.Find(id);
+            ViewBag.Category_ID = new SelectList(db.Categories, "ID", "Isim", p.Category_ID);
+            ViewBag.Brand_ID = new SelectList(db.Brands, "ID", "Isim", p.Brand_ID);
+            return View(p);
+        }
+        [HttpPost]
+        public ActionResult Edit(Product p, HttpPostedFileBase resim)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(p).State = System.Data.Entity.EntityState.Modified;
+
+                if (ModelState.IsValid)
+                {
+                    if (resim != null)
+                    {
+                        FileInfo fi = new FileInfo(resim.FileName);
+                        if (fi.Extension == ".jpg" || fi.Extension == ".png" || fi.Extension == ".jpeg")
+                        {
+                            string isim = Guid.NewGuid().ToString() + fi.Extension;
+                            p.ImagePath = isim;
+                            resim.SaveAs(Server.MapPath("~/ProductImages/" + isim));
+                        }
+                        else
+                        {
+                            p.ImagePath = "noneproduct.jpg";
+                        }
+                    }
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            ViewBag.Category_ID = new SelectList(db.Categories, "ID", "Isim", p.Category_ID);
+            ViewBag.Brand_ID = new SelectList(db.Brands, "ID", "Isim", p.Brand_ID);
+            return View(p);
+        }
     }
 }
