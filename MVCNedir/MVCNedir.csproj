@@ -133,6 +133,7 @@
     <Compile Include="Areas\AdminPanel\Controllers\HomeController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\LoginController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ProductController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\AdminPanelAuthenticationFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -180,6 +181,7 @@
     <Content Include="Areas\AdminPanel\Views\Product\Create.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Product\Index.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Product\IndexActiveProduct.cshtml" />
     <None Include="packages.config" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
@@ -187,6 +189,8 @@
     <Content Include="Scripts\bootstrap.esm.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -197,7 +201,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AdminPanel\Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="ProductImages\" />
   </ItemGroup>
   <PropertyGroup>

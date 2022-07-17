@@ -28,34 +28,31 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td class="align-middle">@item.ID</td>
-            <td>
-                <img src="~/ProductImages/@item.ImagePath" class="img-thumbnail img-fluid" width="56" />
-            </td>
-            <td class="align-middle">@item.Name</td>
-            <td class="align-middle">@item.Category.Isim</td>
-            <td class="align-middle">@item.Brand.Isim</td>
-            <td class="align-middle">@item.Stock</td>
-            <td class="align-middle">@item.Price</td>
-            <td class="align-middle">
-                @if (item.SellStatus)
-                {
-                    <label>Satışta</label>
-                }
-                else
-                {
-                    <label>Satış dışı</label>
-                }
-            </td>
-            <td class="align-middle">
-                <a href="@Url.Action("Edit","Product", new { id = item.ID})" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
-                @if (item.SellStatus)
-                {
+            <tr>
+                <td class="align-middle">@item.ID</td>
+                <td>
+                    <img src="~/ProductImages/@item.ImagePath" class="img-thumbnail img-fluid" width="56" />
+                </td>
+                <td class="align-middle">@item.Name</td>
+                <td class="align-middle">@item.Category.Isim</td>
+                <td class="align-middle">@item.Brand.Isim</td>
+                <td class="align-middle">@item.Stock</td>
+                <td class="align-middle">@item.Price</td>
+                <td class="align-middle">
+                    @if (item.SellStatus)
+                    {
+                        <label>Satışta</label>
+                    }
+                    else
+                    {
+                        <label>Satış dışı</label>
+                    }
+                </td>
+                <td class="align-middle">
+                    <a href="@Url.Action("Edit","Product", new { id = item.ID})" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
                     <a href="@Url.Action("Delete","Product", new { id = item.ID})" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
-                }
-            </td>
-        </tr>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

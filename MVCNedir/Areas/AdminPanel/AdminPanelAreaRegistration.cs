@@ -15,9 +15,10 @@ namespace MVCNedir.Areas.AdminPanel
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "AdminPanel_default",
-                "AdminPanel/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                name:"AdminPanel_default",
+                url:"AdminPanel/{controller}/{action}/{id}",
+                defaults:new { action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "MVCNedir.Areas.AdminPanel.Controllers" }
             );
         }
     }

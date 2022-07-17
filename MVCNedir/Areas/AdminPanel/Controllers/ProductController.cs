@@ -18,6 +18,10 @@ namespace MVCNedir.Areas.AdminPanel.Controllers
         {
             return View(db.Products.ToList());
         }
+        public ActionResult IndexActiveProduct()
+        {
+            return View(db.Products.Where(x => x.SellStatus == true).ToList());
+        }
 
         [HttpGet]
         public ActionResult Create()
@@ -102,6 +106,13 @@ namespace MVCNedir.Areas.AdminPanel.Controllers
             ViewBag.Category_ID = new SelectList(db.Categories, "ID", "Isim", p.Category_ID);
             ViewBag.Brand_ID = new SelectList(db.Brands, "ID", "Isim", p.Brand_ID);
             return View(p);
+        }
+        public ActionResult Delete(int id)
+        {
+            Product p = db.Products.Find(id);
+            p.SellStatus = false;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
