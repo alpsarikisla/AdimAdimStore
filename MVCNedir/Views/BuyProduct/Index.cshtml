@@ -1,0 +1,132 @@
+﻿@model MVCNedir.Models.ViewModels.BuyProductViewModel
+@using MVCNedir.Models
+@{
+    Product p = ViewBag.Product as Product;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Ürün Detayı Ve Satın Alma</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Ürün Adı
+                                </th>
+                                <th>
+                                    Fiyat
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @p.Name
+                                </td>
+                                <td>
+                                    @p.Price ₺
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="mt-5">
+                            @ViewBag.Result
+                            <div class="mt-2">
+                                <label>Kart Üzerindeki isim</label>
+                                @Html.EditorFor(model => model.CardName, new { htmlAttributes = new { @class = "form-control", @placeholder = "İsim Soyad" } })
+                                @Html.ValidationMessageFor(model => model.CardName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="mt-2">
+                                <label>Kart Numarası</label>
+                                @Html.EditorFor(model => model.CardNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "---- ---- ---- ----" } })
+                                @Html.ValidationMessageFor(model => model.CardNumber, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Son Kullanma Ay</label>
+                                    <select name="ReqM" class="form-select">
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Son Kullanma Ay</label>
+                                    <select name="ReqY" class="form-select">
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                        <option value="2029">2029</option>
+                                        <option value="2030">2030</option>
+                                        <option value="2031">2031</option>
+                                        <option value="2032">2032</option>
+                                        <option value="2033">2033</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>CVV Numarası</label>
+                                    @Html.EditorFor(model => model.Cvv, new { htmlAttributes = new { @class = "form-control", @placeholder = "*9*" } })
+                                    @Html.ValidationMessageFor(model => model.Cvv, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <button type="submit" class="btn btn-success float-end mt-4">Ödeme Yap</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">Sipariş Özeti</div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <td>Ara Toplam</td>
+                            <td> @{ double semitotal = p.Price * 0.82; }  @semitotal  </td>
+                        </tr>
+                        <tr>
+                            <td>Vergi</td>
+                            <td> @{ double tax = p.Price * 0.18; }  @tax </td>
+                        </tr>
+                        <tr>
+                            <td>Toplam</td>
+                            <td>
+                                <b>
+                                    @p.Price ₺
+                                </b>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

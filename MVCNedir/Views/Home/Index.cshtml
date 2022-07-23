@@ -40,7 +40,7 @@
                                     <p>@item.Description</p>
                                 }
                                 <div class="d-grid gap-2">
-                                    <a href="#" type="button" class="btn btn-sm btn-warning">Satın Al</a>
+                                    <a href="@Url.Action("Index","BuyProduct", new { id = item.ID})" type="button" class="btn btn-sm btn-warning">Satın Al</a>
                                 </div>
                                 
                             </div>

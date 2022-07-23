@@ -150,3 +150,7 @@ C:\Users\303\Documents\GitHub\AdimAdimStore\MVCNedir\obj\Debug\MVCNedir.csproj.C
 C:\Users\303\Documents\GitHub\AdimAdimStore\MVCNedir\obj\Debug\MVCNedir.csproj.CopyComplete
 C:\Users\303\Documents\GitHub\AdimAdimStore\MVCNedir\obj\Debug\MVCNedir.dll
 C:\Users\303\Documents\GitHub\AdimAdimStore\MVCNedir\obj\Debug\MVCNedir.pdb
+C:\Users\303\Documents\GitHub\AdimAdimStore\MVCNedir\bin\Newtonsoft.Json.dll
+C:\Users\303\Documents\GitHub\AdimAdimStore\MVCNedir\bin\System.Net.Http.Formatting.dll
+C:\Users\303\Documents\GitHub\AdimAdimStore\MVCNedir\bin\Newtonsoft.Json.xml
+C:\Users\303\Documents\GitHub\AdimAdimStore\MVCNedir\bin\System.Net.Http.Formatting.xml

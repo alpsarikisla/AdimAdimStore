@@ -51,6 +51,13 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -117,6 +124,7 @@
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\signin.css" />
     <Content Include="Global.asax" />
+    <Content Include="PageImages\paysuccess.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -133,6 +141,7 @@
     <Compile Include="Areas\AdminPanel\Controllers\HomeController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\LoginController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ProductController.cs" />
+    <Compile Include="Controllers\BuyProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\AdminPanelAuthenticationFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -145,6 +154,7 @@
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\ManagerType.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ViewModels\BuyProductViewModel.cs" />
     <Compile Include="Models\ViewModels\ManagerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -191,6 +201,9 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\BuyProduct\Index.cshtml" />
+    <Content Include="Views\BuyProduct\PaySuccess.cshtml" />
+    <Content Include="PageImages\man-doing-payment-using-swipe-machine-1886545-1598076.webp" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
